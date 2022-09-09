@@ -3,5 +3,5 @@ MAPPING = [54, 58, 53, 4, 8, 60, 45, 60, 12, 41, 13, 47, 60, 4, 44, 56, 62, 4, 5
 MESSAGE = [32, 5, 7, 15, 51, 23, 3, 13, 48, 2, 11, 29, 14, 6, 16, 1, 9, 0, 12, 46, 41, 22, 37, 17, 38, 25, 31, 18, 20, 30, 21, 39, 40, 36, 33, 26, 55, 53, 42, 49, 8, 52, 10, 27, 4, 24, 50, 44, 54, 28, 45, 35, 47, 43, 34, 19]
 
 for index in MESSAGE:
-    mapping_index = MAPPING[index]
-    print(ALPHABET[mapping_index], end = " ")
+    mappingindex = MAPPING[index]
+    print(ALPHABET[mappingindex], end = "")
