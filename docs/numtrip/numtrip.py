@@ -1,9 +1,10 @@
-zahlen_matrix = []
-zahlen_matrix.append([64,4,16,32,8])
-zahlen_matrix.append([8,16,64,8,32])
-zahlen_matrix.append([8,16,64,8,32])
-zahlen_matrix.append([2,4,16,32,8])
-zahlen_matrix.append([8,16,64,8,32])
+zahlen_matrix = [
+    [2, 4, 1, 8, 8],
+    [4, 2, 8, 2, 1],
+    [4, 4, 16, 4, 2],
+    [2, 8, 1, 4, 1],
+    [2, 4, 4, 4, 4]
+]
 
 print(zahlen_matrix)
 
