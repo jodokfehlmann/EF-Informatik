@@ -14,3 +14,4 @@
 ## Mein Traum 3D Drucker:
 ![bild](https://3ddruckkaufhaus.de/3748-tm_thickbox_default/3d-drucker-formlabs-form-2-sla-3d-drucker-standard-set.jpg)
 
+![eigenesbild](images/Informatik.png)

@@ -3,11 +3,11 @@ import time
 
 sttime=time.time()
 
-nmax=10000
+NMAX=1000000
 prime_zahl=[]
 prime_zahl.append(2)
 
-for i in range(3,nmax+1):
+for i in range(3,NMAX+1):
     isprime=True
     j=0
     while (j<len(prime_zahl) and isprime):

@@ -1,7 +1,7 @@
 import time
 
 sttime=time.time()
-nmax=10000
+nmax=100000
 prime_zahl=[]
 prime_zahl.append(2)
 
