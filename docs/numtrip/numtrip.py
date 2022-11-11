@@ -7,19 +7,18 @@ zahlen_matrix = [
 ]
 
 #print(zahlen_matrix)
-def oberezeile():
-    print(f"      1     2      3      4      5    ")
+def obere_zeile():
+    print(f"      1      2      3      4      5    ")
 
 def rand():
     print(f"  +------+------+------+------+------+")
 
-def leerzeile():
+def leer_zeile():
     print(f"  ¦      ¦      ¦      ¦      ¦      ¦")
 
 
-def dazwischen_zahl(zahlenliste):
-
-    print("1 ¦", end = '')
+def dazwischen_zahl(zahlenliste,nr):
+    print(f"{nr} ¦", end = '')
     for zahl in zahlenliste:
         if (zahl<10):
             print(" ", end = '')
@@ -28,10 +27,10 @@ def dazwischen_zahl(zahlenliste):
         print("  ¦", end = '')
     print("")
 
-oberezeile()
+obere_zeile()
 rand()
 for i in range(5):
-    leerzeile()
-    dazwischen_zahl(zahlen_matrix[i])
-    leerzeile()
+    leer_zeile()
+    dazwischen_zahl(zahlen_matrix[i],i+1)
+    leer_zeile()
     rand()
