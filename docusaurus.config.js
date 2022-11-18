@@ -6,6 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const USERNAME = 'jodokfehlmann';
 const REPO_NAME = 'EF-INFORMATIK';
 
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Lern Blog',
