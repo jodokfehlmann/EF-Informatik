@@ -23,14 +23,28 @@ def dazwischen_zahl(zahlenliste,nr):
         if (zahl<10):
             print(" ", end = '')
         print("  ", end = '')
-        print(zahl, end = '')
+        if (zahl<0):
+            print(" ",end = '')
+        else:
+            print(zahl, end = '')
         print("  ¦", end = '')
     print("")
 
-obere_zeile()
-rand()
-for i in range(5):
-    leer_zeile()
-    dazwischen_zahl(zahlen_matrix[i],i+1)
-    leer_zeile()
+
+def eingabe():
+    x,y=input("Welches Feld soll geleert werden: ").split()
+    return int(x),int(y)
+
+
+def auswerten(x,y):
+    obere_zeile()
     rand()
+    zahlen_matrix[x-1][y-1]=-1
+    for i in range(5):
+        leer_zeile()
+        dazwischen_zahl(zahlen_matrix[i],i+1)
+        leer_zeile()
+        rand()
+
+x,y=eingabe()
+auswerten(x,y)
