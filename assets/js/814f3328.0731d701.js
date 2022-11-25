@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkef_website_template=self.webpackChunkef_website_template||[]).push([[535],{5641:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Informatik EF-Blog","permalink":"/EF-Informatik/hangman"},{"title":"Was sind Listen?","permalink":"/EF-Informatik/listen"}]}')}}]);
