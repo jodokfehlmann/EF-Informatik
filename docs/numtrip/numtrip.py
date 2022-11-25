@@ -45,6 +45,6 @@ def auswerten(x,y):
         dazwischen_zahl(zahlen_matrix[i],i+1)
         leer_zeile()
         rand()
-
-x,y=eingabe()
-auswerten(x,y)
+while True:
+    x,y=eingabe()
+    auswerten(x,y)
