@@ -33,21 +33,29 @@ def dazwischen_zahl(zahlenliste,nr):
 
 
  
-def eingabe_ueberprüfen(zahl):
+def eingabe_ueberpruefen(x,y):
     try:
-        if zahl < 0:
-            raise 'Achtung Negative Zahl'
-        if zahl.isalpha():
-            raise 'Achtung Keine Zahl'
-        if zahl > 5:
-            raise 'Achtung nicht grösser als 5 eingeben'
+        x=int(x)
+        y=int(y)
+        if (x>0 and x<=5 and y>0 and y<=5):
+            return True
+        else:
+            print("Es müssen zahlen zwischen 1 und 5 sein.")
+            return False
     except:
-        return False
+        print("Natürliche Zahlen du Depp!!!")
+        return False 
+
 
 def eingabe():
-    x,y=input("Welches Feld soll geleert werden:").split()
-    eingabe_ueberprüfen(x)
-    eingabe_ueberprüfen(y)
+    eingabeok = False
+    while not eingabeok:
+        tasteneingabe=input("Welches Feld soll geleert werden:")
+        if (not " " in tasteneingabe):
+            print("Zwei getrennte Zahlen eingeben")
+        else:
+            x,y=tasteneingabe.split()
+            eingabeok=eingabe_ueberpruefen(x,y)
     return int(x),int(y)
 
 def auswerten(x,y):
