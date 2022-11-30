@@ -31,10 +31,24 @@ def dazwischen_zahl(zahlenliste,nr):
     print("")
 
 
-def eingabe():
-    x,y=input("Welches Feld soll geleert werden: ").split()
-    return int(x),int(y)
 
+ 
+def eingabe_ueberprüfen(zahl):
+    try:
+        if zahl < 0:
+            raise 'Achtung Negative Zahl'
+        if zahl.isalpha():
+            raise 'Achtung Keine Zahl'
+        if zahl > 5:
+            raise 'Achtung nicht grösser als 5 eingeben'
+    except:
+        return False
+
+def eingabe():
+    x,y=input("Welches Feld soll geleert werden:").split()
+    eingabe_ueberprüfen(x)
+    eingabe_ueberprüfen(y)
+    return int(x),int(y)
 
 def auswerten(x,y):
     obere_zeile()

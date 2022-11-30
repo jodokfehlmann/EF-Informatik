@@ -41,7 +41,7 @@ def eingabe():
     x,y=input("Welches Feld soll geleert werden: ").split()
     return int(x),int(y)
 ```
- das habe ich mit dieser funktion gemacht. Sie fragt den benutzer um zwei zahlen. Die zwei zahlen werde durch trennung mittels eines kommas eingegeben. Wenn man ein .split() am ende eines inputs macht kann man gerade zwei zahlen auf zwei aufteilen ohne dass man den benutzer zwei mal fragen muss.
+ das habe ich mit dieser funktion gemacht. Sie fragt den benutzer um zwei zahlen. Die zwei zahlen werde durch trennung mittels eines kommas eingegeben. Wenn man ein `.split()` am ende eines inputs macht kann man gerade zwei zahlen auf zwei aufteilen ohne dass man den benutzer zwei mal fragen muss.
  das return am schluss macht aus den string noch integers.
 
 ### Werte Leeren in der Matrix:
