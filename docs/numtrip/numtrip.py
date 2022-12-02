@@ -1,9 +1,9 @@
 zahlen_matrix = [
-    [2, 4, 16, 8, 8],
-    [4, 26, 8, 2, 1],
-    [4, 4, 16, 4, 2],
-    [2, 8, 1, 4, 1],
-    [2, 4, 4, 4, 4]
+    [128, 4, 16, 8, 8],
+    [4, 32, 8, 2, 1],
+    [4, 4, 1024, 4, 2],
+    [2, 8, 16, 4, 16],
+    [2, 512, 4, 4, 4]
 ]
 
 #print(zahlen_matrix)
@@ -20,6 +20,7 @@ def leer_zeile():
 def dazwischen_zahl(zahlenliste,nr):
     print(f"{nr} ¦", end = '')
     for zahl in zahlenliste:
+
         if (zahl<10):
             print(" ", end = '')
         print("  ", end = '')
@@ -27,12 +28,15 @@ def dazwischen_zahl(zahlenliste,nr):
             print(" ",end = '')
         else:
             print(zahl, end = '')
-        print("  ¦", end = '')
+        if (zahl>1000):
+            print("¦", end = '')
+        else:
+            if (zahl>100):
+                print(" ¦", end = '')
+            else:
+             print("  ¦", end = '')
     print("")
 
-
-
- 
 def eingabe_ueberpruefen(x,y):
     try:
         x=int(x)
