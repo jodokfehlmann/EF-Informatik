@@ -1,1 +1,2 @@
 # EF-Informatik
+*Jodok Fehlmann*
