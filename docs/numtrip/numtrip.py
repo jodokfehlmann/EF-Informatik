@@ -7,7 +7,6 @@ zahlen_matrix = [
     [  2,  8,   16,  4, 16],
     [  2,512,    4,  4,  4]
 ]
-
 def obere_zeile():
     print(f"      1      2      3      4      5    ")
 
@@ -57,14 +56,16 @@ def eingabe():
     while not eingabeok:
         tasteneingabe=input("Welches Feld soll geleert werden:")
         if (not " " in tasteneingabe):
-            print("Zwei getrennte Zahlen eingeben")
+            x, y = tasteneingabe[0], tasteneingabe[1]
+            eingabeok=eingabe_ueberpruefen(x,y)
         else:
             x,y=tasteneingabe.split()
             eingabeok=eingabe_ueberpruefen(x,y)
     return int(x),int(y)
 
-def feld_löschen(x,y):
 
+def feld_löschen(x,y):
+    global wert
     if zahlen_matrix[x-1][y]== wert:
         zahlen_matrix[x-1][y]=-1
         feld_löschen(x-1,y)
@@ -77,6 +78,21 @@ def feld_löschen(x,y):
     if zahlen_matrix[x][y-1]== wert:
         zahlen_matrix[x][y-1]=-1
         feld_löschen(x,y-1)
+
+def spielbar():
+    for a in range(5):
+        for b in range(5):
+            if zahlen_matrix[a][b] == -1:
+                return True
+
+            check_left = a > 0 and zahlen_matrix[a][b] == zahlen_matrix[a-1][b]
+            check_right = a < 4 and zahlen_matrix[a][b] == zahlen_matrix[a+1][b]
+            check_up = b > 0 and zahlen_matrix[a][b] == zahlen_matrix[a][b-1]
+            check_down = b < 4 and zahlen_matrix[a][b] == zahlen_matrix[a][b+1]
+
+            if check_left or check_right or check_up or check_down:
+                return True
+    return False
 
 
     
@@ -111,23 +127,51 @@ def feldzeichnen():
         leer_zeile()
         rand()
 
+def ist_loesachbar(zahlen_matrix, x, y):
+    # check_up
+    if x > 0 and zahlen_matrix[x-1][y] == zahlen_matrix[x][y]:
+        return True
+    # check_down
+    if x < 4 and zahlen_matrix[x+1][y] == zahlen_matrix[x][y]:
+        return True
+    # check_left
+    if y < -1 and zahlen_matrix[x][y+1] == zahlen_matrix[x][y]:
+        return True
+    # ckeck_right
+    if y > 0 and zahlen_matrix[x][y-1] == zahlen_matrix[x][y]:
+        return True
+    else:
+        return False
+
 
 zahlen_matrix = []
 for i in range(5):
     neuezeile=[]
     for j in range(5):
-        neuezeile.append(2**(int(random.random()*10)))
+        neuezeile.append(2**(int(random.random()*6)))
     zahlen_matrix.append(neuezeile)
+
         
 while True:
     x, y=eingabe()
     global wert
-
     x -= 1
     y -= 1
     wert = zahlen_matrix[x][y]
-    zahlen_matrix[x][y]= wert*2
-    feld_löschen(x,y)
-#    print("Matrixelement = " + str(zahlen_matrix[1][4]))
+    if wert*2 >= 2048:
+        print("Du hast Gewonnen!!!")
+    else: 
+        zahlen_matrix[x][y]= wert*2
+
+    if ist_loesachbar(zahlen_matrix, x, y):
+        feld_löschen(x,y)
+        	
+    else:
+        print("Du kannst dieses feld nicht löschen")
+        eingabe()
+    
+    # print(zahlen_matrix)
     feld_auffüllen()
     feldzeichnen()
+    if not spielbar():
+        print("Du hast verlorem")
