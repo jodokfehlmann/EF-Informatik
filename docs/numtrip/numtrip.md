@@ -2,16 +2,15 @@
 
 ## Ziel des Spiels:
 
-In diesem spiel geht es darum eine möglichts hohe zahl in einem feld zu erreichen mit der einschränkung, dass man nur ein feld verdoppeln kann wenn es ein nachbar feld mit dem gleichen wert gibt. Das macht das spiel ziemlich schwierig in gewissen situationen. Es ist vergleichbar mit dem 2048 spiel welches fast jeder kennt. 
+In diesem Spiel geht es darum, eine möglichst hohe Zahl in einem Feld zu erreichen, mit der Einschränkung, dass man nur ein Feld verdoppeln kann, wenn es ein Nachbarfeld mit dem gleichen Wert gibt. Das macht das Spiel ziemlich schwierig in gewissen Situationen. Es ist vergleichbar mit dem 2048 Spiel, welches fast jeder kennt.
 
 # Umsetzung des Spiels
-Die voraussetzungen halten sich bei diesem spiel in massen. Das einzige was man braucht ist python installiert auf seinem Computer. Hier der link zum herunterladen: https://www.python.org/downloads/
-Da das spiel nur im Terminal läuft ist dies die eizig einstallation die es braucht um es spielen zu können.
-
+Die Voraussetzungen halten sich bei diesem Spiel in Grenzen. Das Einzige, was man braucht, ist Python, das auf seinem Computer installiert ist. Hier der Link zum Herunterladen: https://www.python.org/downloads/
+Da das Spiel nur im Terminal läuft, ist dies die einzige Installation, die es braucht, um es spielen zu können.
 
 ## Spielfeld Gezeichnet
 
-Als hausaufgabe habe ich mein spielfeld "gezeichnet" das schaut so aus:
+Als Hausaufgabe habe ich mein Spielfeld "gezeichnet", das so aussieht:
 ```py
       1      2      3      4      5
   +------+------+------+------+------+
@@ -36,25 +35,23 @@ Als hausaufgabe habe ich mein spielfeld "gezeichnet" das schaut so aus:
   ¦      ¦      ¦      ¦      ¦      ¦
   +------+------+------+------+------+
 ```
-Ich habe das einfach mit einzelnen funktion gemacht welche dann zum beispiel den oberen rand bzw eine zwischenzeile zeichnen. Ich bin sehr zufrieden mit meinem design.
+Ich habe das Design einfach mit einzelnen Funktionen erstellt, die zum Beispiel den oberen Rand oder eine Zwischenzeile zeichnen. Ich bin sehr zufrieden mit meinem Design.
 
 ## Erstes Interaktives Element Hinzugefügt:
 
 ### Eingabe Funktion:
-Als Hausaufgabe habe ich das erte interaktive element zu unserem spiel Numtrip hinzugefügt. Mit 
-diesem Element kann man ein feld auswählen indem man eine x,y kordinate eingibt.
+Als Hausaufgabe habe ich das erste interaktive Element zu unserem Spiel Numtrip hinzugefügt. Mit diesem Element kann man ein Feld auswählen, indem man eine x,y-Koordinate eingibt.
 
 ```py
 def eingabe():
     x,y=input("Welches Feld soll geleert werden: ").split()
     return int(x),int(y)
 ```
- das habe ich mit dieser funktion gemacht. Sie fragt den benutzer um zwei zahlen. Die zwei zahlen werde durch trennung mittels eines kommas eingegeben. Wenn man ein `.split()` am ende eines inputs macht kann man gerade zwei zahlen auf zwei aufteilen ohne dass man den benutzer zwei mal fragen muss.
- das return am schluss macht aus den string noch integers.
+ Ich habe die Funktion erstellt, die den Benutzer nach zwei Zahlen fragt. Die Benutzer gibt die Zahlen durch Trennung mittels eines Kommas ein. Mit der Methode `.split()` am Ende des Inputs kann ich die beiden Zahlen aufteilen, ohne den Benutzer zweimal zu fragen. Das Return am Schluss wandelt die eingegebenen Strings in integers um.
 
 ### Werte Leeren in der Matrix:
 
-Meine idee war dass ich eine minus eins in die matrix schreibe an der stelle wo der benutzer das feld leeren soll, dann später mache ich einfach beim print befehl dass es falls es eine negativezahl ist einen leerschlag macht um die zahl zu löschen. Das sieht dann etwa so aus. Ich glaube das sollte für alle klar sein was der code macht.
+Meine Idee war, dass ich eine -1 in die Matrix schreibe an der Stelle, wo der Benutzer das Feld leeren soll. Später mache ich einfach beim Print-Befehl, dass falls es eine negative Zahl ist, es einen Leerschlag macht, um die Zahl zu löschen. Das sieht dann etwa so aus
 ```py
 zahlen_matrix[x-1][y-1]=-1
 ```
@@ -62,10 +59,9 @@ zahlen_matrix[x-1][y-1]=-1
 if (zahl<0):
             print(" ",end = '')
 ```
-
 ### Rundum Werte leeren des Spielfeldes:
 
-Dies ist der erste algorythmus den ich oprogrammiert habe. Er Speichert zuerst den wert des feldes in der variable `wert` dann schaut er welches feld rundum den selben wert hat und springt zu diesem feld und geht diese ganze prozedur noch einmal durch um allenfalls mögliche nachbarfelder auch aufzudecken. Dieser abschnitt schaut so aus.
+Dies ist der erste Algorithmus, den ich programmiert habe. Er speichert zuerst den Wert des Feldes in der Variablen wert. Danach schaut er, welches Feld rundum den selben Wert hat und springt zu diesem Feld und geht diese ganze Prozedur noch einmal durch, um alle möglichen Nachbarfelder auch aufzudecken. Dieser Abschnitt könnte etwa so aussehen:
 ```py
 def feld_loeschen(x,y):
 
@@ -86,7 +82,7 @@ Hier wird einfach die Funktion `feld_loeschen`aufgerufen mit der neuen Position 
 
 ## Zahlen rundum wieder auffüllen
 
-Nun müssen wir von der gelöschten position aus alle anderen kästchen welche das auserwählte berühren auch noch leeren. Diese müssen dann später wieder aufgefüllt werden. Mein vorgehen ist dass ich von unten links anfange die ganze matrix durchzugehen und zu überprüfen ob der wert der position gleich -1 ist was bei mir einer leeren zelle entschpricht. Dies Schaut dann so aus. 
+Nun müssen wir von der gelöschten Position aus alle anderen Kästchen, die das ausgewählte berühren, auch noch leeren. Diese müssen später wieder aufgefüllt werden. Mein Vorgehen ist, dass ich von unten links anfange, die ganze Matrix durchzugehen und zu überprüfen, ob der Wert der Position gleich -1 ist, was bei mir einer leeren Zelle entspricht. Dies könnte etwa so aussehen: 
 ``` py
 def feld_auffuellen():
     for j in range(5):
@@ -108,15 +104,15 @@ def feld_auffuellen():
         if zahlen_matrix[0][j] == -1:
             zahlen_matrix[0][j] = 2**(int(random.random()*4))
 ```
-Dazu wird auch noch gerade die obere spalte immer, falls sie leer ist mit zufallszahlen generiert. 
+Dazu wird auch noch gerade die obere Spalte immer, falls sie leer ist mit Zufallszahlen generiert. 
 
 ## Ist es überhaupt spielbar?
 
-Wir müssen unbedingt bevor der spieler erneut spielen kann überprüfen ob es überhaupt spielbar ist, dass heiss man muss schauen ob es mindestens ein Feld gibt welches rechts, links, oben oder unten den selben wert als das Feld hat. Diesen code teil ist mit der funktion `spielbar()` gemacht, ich werde diesen hier nicht einfügen da dies sehr einfach ist. 
+Wir müssen unbedingt, bevor der Spieler erneut spielen kann, überprüfen, ob es überhaupt spielbar ist. Das heißt, man muss schauen, ob es mindestens ein Feld gibt, welches rechts, links, oben oder unten denselben Wert hat, wie das aktuelle Feld. Dieser Teil des Codes ist mit der Funktion `spielbar()` gemacht. Der Code selbst würde vermutlich ähnlich wie die obigen Beispiele aussehen, indem es durch die Matrix geht und prüft, ob es Nachbarfelder mit demselben Wert gibt. 
 
 ## Ist der ausgewählte zug erlaubt?
 
-Was dazu kommt ist auch noch zu überprüfen ob der spieler ein erlaubtes feld angewählt hat. Er darf nur ein feld wählen welches auch mindestens auf einer seite ein feld des selben werts existiert. Dies wird mit der funktion `erlaubter_zug()` überprüft. Deise sieht so aus:
+Ein weiterer wichtiger Schritt ist auch zu überprüfen, ob der Spieler ein erlaubtes Feld ausgewählt hat. Er darf nur ein Feld wählen, welches auch mindestens auf einer Seite ein Feld desselben Werts existiert. Dies wird mit der Funktion `erlaubter_zug()` überprüft. Diese könnte etwa so aussehen:
 ```py
 def erlaubter_zug(x, y):
     # check_up
@@ -126,19 +122,24 @@ def erlaubter_zug(x, y):
     # check_down
     ...
 ```
-etc... sie checkt dann noch alle enderen seiten.
+etc... sie checkt dann noch alle anderen Seiten.
 
 
 ## Gewonnen!!!
 
-Bei mir hat der Spieler gewonnen wenn er es geschafft hat innerhalb von 2 minuten mindestens ein feld auf `1024` zu bringen. Dieses ziel ist erreichbar aber man muss genügen dgut im spiel sein uim, es zu erreichen.
+Bei mir hat der Spieler gewonnen, wenn er es innerhalb von 2 Minuten geschafft hat, mindestens ein Feld auf `1024` zu bringen. Dieses Ziel ist erreichbar, aber man muss gut im Spiel sein, um es zu erreichen.
+Dies könnte man z.B. mit einer Timer-Funktion tracken und am Ende des Spiels überprüfen, ob das Ziel erreicht wurde.
 
 
 # Herausforderungen und Tipps:
 ## Herausforderungen
-Manchmal hat es etwas zeit gebraucht bis alles ging aber grosse herausforderungen gab es keine. Manchmal habe ich den lehrer um einen Tipp gefragt und es ging dann immer. 
+Manchmal hat es etwas Zeit gebraucht bis alles ging aber grosse Herausforderungen gab es keine. Manchmal habe ich den Lehrer um einen Tipp gefragt und es ging dann immer. 
 
 ## Tipps an andere EF_Schüler:
 
-Mein haupt tipp wäre immer der lektion etwas im voraus zu seine damit man am schluss nicht in den stress kommt und halt zuhause auch arbeiten. Den grösstem teil habe ich zuhause geschrieben da ich in den Lektionen unfähig effizient zu arbeiten haha. Das liegt aber warschweinlich hauptsächlich an mir.
+Mein haupt Tipp wäre immer der Lektion etwas im voraus zu sein, damit man am Schluss nicht in den Stress kommt und halt Zuhause auch arbeiten. Den grösstem Teil habe ich Zuhause geschrieben da ich in den Lektionen unfähig bin Effizient zu arbeiten haha. Das Liegt aber warschweinlich hauptsächlich an mir.
 
+## Top-Down entwurf
+
+
+![](./topdown.png)
