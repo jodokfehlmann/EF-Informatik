@@ -1,7 +1,6 @@
 import random
 import time
-
-
+import sys
 n = 5
 
 zahlen_matrix = [
@@ -164,11 +163,12 @@ for i in range(5):
     zahlen_matrix.append(neuezeile)
 
 startzeit = time.time()
+
 while True:
     feldzeichnen()
     if not spielbar():
         print("Du hast verloren")
-        exit()
+        sys.exit()
     x, y=eingabe()
     x -= 1
     y -= 1
@@ -182,11 +182,12 @@ while True:
     aktuellezeit = time.time()
     if aktuellezeit-startzeit > 120.:
         print("Zeit abgelaufen")
-        exit()
+        sys.exit()
     global wert
     wert = zahlen_matrix[x][y]
-    if wert * 2 >= 2048:
+    if wert * 2 >= 1024:
         print("Du hast Gewonnen!!!")
+        sys.exit()
     else:
         zahlen_matrix[x][y] = wert * 2
 
