@@ -52,18 +52,18 @@ def eingabe_ueberpruefen(x,y):
             return False
     except:
         print("Natuerliche Zahlen du Depp!!!")
-        return False 
 
 def eingabe():
     eingabeok = False
     while not eingabeok:
-        tasteneingabe = input("Welches Feld soll geleert werden:")
-        if (not " " in tasteneingabe):
+        tasteneingabe = input("Welches Feld soll geleert werden:(34)")
+        try:
+            tasteneingabe = tasteneingabe.strip()
             x, y = tasteneingabe[0], tasteneingabe[1]
             eingabeok = eingabe_ueberpruefen(x, y)
-        else:
-            x, y = tasteneingabe.split()
-            eingabeok = eingabe_ueberpruefen(x, y)
+        except:
+            print('Natürliche Zahlen!')
+            eingabe()
     return int(x), int(y)
 
 
@@ -83,8 +83,6 @@ def feld_loeschen(x,y):
         zahlen_matrix[x][y-1]=-1
         feld_loeschen(x,y-1)
 
-
-    
 def feld_auffuellen():
     for j in range(5):
         for i in range (4,0,-1):
@@ -105,7 +103,6 @@ def feld_auffuellen():
         if zahlen_matrix[0][j] == -1:
             zahlen_matrix[0][j] = 2**(int(random.random()*4))
 
-
 def spielbar():
     for a in range(n):
         for b in range(n):
@@ -123,8 +120,6 @@ def spielbar():
                     return True
     return False
 
-
-
 def feldzeichnen():
     obere_zeile()
     rand()
@@ -133,7 +128,6 @@ def feldzeichnen():
         dazwischen_zahl(zahlen_matrix[i],i+1)
         leer_zeile()
         rand()
-
 
 def erlaubter_zug(x, y):
     # check_up
@@ -153,7 +147,6 @@ def erlaubter_zug(x, y):
         if zahlen_matrix[x][y - 1] == zahlen_matrix[x][y]:
             return True
     return False
-
 
 zahlen_matrix = []
 for i in range(5):
