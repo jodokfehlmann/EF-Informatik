@@ -11,7 +11,7 @@ if (user){
 }
  ```
 
-Die Login Funktion löscht einfach den cookie un dleitet uns and die entscprechende seite weiter.
+Die Login Funktion löscht einfach den cookie und leitet uns and die entscprechende seite weiter also die Wilkommensseite.
 
 Das Programmieren in JavaScript ist fast identisch mit Python, deshalb war es für mich auf den ersten Blick ziemlich verständlich.
 
