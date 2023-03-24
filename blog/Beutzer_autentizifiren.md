@@ -1,18 +1,27 @@
 # Wie Authentifiziert man einen Benutzer:
 Letzte Woche haben wir in Node-RED einen bereits existierenden Flow eingefügt, der zwei HTML-Seiten enthält: eine __welcome.html__ und eine __login.html__. Der Aufbau ist ziemlich simpel doch wir konnten alles auf der OFI seite herunterladen un din unseren flow importieren dadurch mussten wir nur noch unsere gewünschten Ändern.
- 
+
 ![](./login_website.jpg)
 
 Die Login-Funktion sucht einfach in der Datenbank nach Benutzernamen und Passwort und überprüft, ob sie übereinstimmen. Dazu wird dies in den Cookies gespeichert, daher sieht das Set-Cookie so aus:
  ```py
-if (user){
-    if (password== user.pw){
-        msg.cookies = {
-            auth: true,
+const { name, password } = msg.payload;
+const user = flow.get(name.toLowerCase());
+
+if (user) {
+    if (password == user.pw) {
+        user.secret = Math.round(9999 * Math.random());
+        msg.cookies =
+        {
+            secret: user.secret,
             name: name
         }
+        flow.set(name.toLowerCase(), user);
     }
 }
+
+
+return msg;
  ```
 
 Die Login Funktion löscht einfach den cookie und leitet uns and die entscprechende seite weiter also die Wilkommensseite.
