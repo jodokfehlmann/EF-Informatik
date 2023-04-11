@@ -1,13 +1,13 @@
-# Subway Scientists CanSat
+# Subway Scientists CanSat Projekt
 
 ## Wer sind wir?
-Wir sind eine Gruppe von 6 Schüler aus dem Gymnasium Biel Bienne, wir sind in der Klasse 24K, einer Phyisk und anwendungen der Mathematik klasse. Im letzen herbst haben wir uns entschieden am Cansat wettbewerb teilzunehmen, wir sin dalle sehr motiviert an diesem projekt.
+Wir sind eine Gruppe von 6 Schülern aus dem Gymnasium Biel Bienne et Jura Bernois. Wir sind in der Klasse 24K, einer Phyisk und Anwendungen der Mathematik Klasse. Im letzen Herbst haben wir uns entschieden, am Cansat Wettbewerb teilzunehmen und wir sind alle sehr motiviert für dieses Projekt.
 ![](./gruppenfot_vor_start.jpg)
 Von links nach rechts:
 
 ---
 
-* Luis Garza Cisneros Carlos
+* Luis Carlos Garza Cisneros
 * Miguel von Büren
 * Mathieu Sprenger
 * Jodok Fehlmann
@@ -31,7 +31,7 @@ __Der CanSat-Wettbewerb__ bietet den Teilnehmern eine einzigartige Gelegenheit, 
 # Blog
 ## Was ist unser ziel? 
 
-Wir wollen unserem CanSat die Fähigkeit geben, die Daten, die es misst, in Echtzeit auf einen Server hochzuladen, damit man während des gesamten Fluges verfolgen kann, wo unser Satellit gerade ist und auch die gemessenen Daten. Das bedeutet:
+Wir wollen unserem CanSat die Fähigkeit geben, die Daten, die es misst, in Echtzeit auf einen Server hochzuladen, damit man während des gesamten Fluges verfolgen kann, wo unser Satellit gerade ist und auch die gemessenen Daten sehen kann. Dies sind:
 
 ---
 
@@ -44,8 +44,8 @@ Wir wollen unserem CanSat die Fähigkeit geben, die Daten, die es misst, in Echt
 
 
 ## Elektronik
-Gabriel ist zuständig fèr die elektronik.
-Das ist unser Gesamtes Programm:
+Gabriel ist zuständig für die Elektronik.
+Das ist unser gesamtes Programm:
  ```c++
 #include <Tiny_BME280.h>
 #include <Wire.h>
@@ -202,7 +202,7 @@ void loop() {
 ![](./plan_fritzing.jpg)
 
 ## Fallschirm
-Wir haben aus einem alten Fallschirm von unserem physik lehrer unser eigener falschirm genàht, Lui shat die berechungen dafèr durchgeeführt um sicherzustellen dass der fallschirm mit einer geschwingigkeit von etwa 7m/s nach unten fliegt. 
+Wir haben aus einem alten Fallschirm von unserem Physiklehrer unseren eigenen Fallschirm genäht, Luis hat die Berechungen dafür durchgeführt, um sicherzustellen, dass der Fallschirm mit einer Geschwingigkeit von etwa 7m/s nach unten fliegt. 
 ![](./callculatiosn_parachute.jpg)
 In GeoGebra haben wir eine Skizze erstellt, die automatisch die richtige Form des Fallschirms berechnet. Wir haben dies mithilfe unserer oben durchgeführten Berechnungen gemacht. Auf dem ersten Hebel können wir die Anzahl der Felder ändern und auf dem anderen Hebel können wir den Radius des Fallschirms gemäß den Berechnungen ändern. Und es zeigt uns die Fläche des Feldes, die für den Fallschirm benötigt wird.
 
@@ -247,7 +247,7 @@ Während des Fluges wurde das Ereignis von Miguel von Büren kommentiert und per
 
 [__👉 Onboard-Video__](https://www.youtube.com/embed/0pc0kLKa30c)
 
-Wir möchten noch dem Neuen sponsor danken:
+Wir möchten noch unserem neuen Sponsor danken:
 
 ## Beyond Gravity
 
