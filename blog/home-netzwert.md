@@ -8,3 +8,7 @@ Am Router sind noch 2 SSD-Karten angeschlossen um eine Art Cloud Speicher zu hab
 Um in allen Zimmern des Hauses WLAN zu haben, verwenden wir 4 Mac Airport Express-Geräte, um eine gute Verbindung sicherzustellen.
 
 ![](./LD0005355205_2.jpg)
+
+Schema Router:
+
+![](./MicrosoftTeams-image.png)
